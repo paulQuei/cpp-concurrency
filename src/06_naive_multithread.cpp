@@ -29,7 +29,7 @@ void concurrent_task(int min, int max) {
 
   unsigned concurrent_count = thread::hardware_concurrency();
   cout << "hardware_concurrency: " << concurrent_count << endl;
-  vector<thread> threads;
+  vector<thread> threads; 
   min = 0;
   sum = 0;
   for (int t = 0; t < concurrent_count; t++) {

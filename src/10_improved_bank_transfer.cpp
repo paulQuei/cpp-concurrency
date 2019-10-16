@@ -68,19 +68,17 @@ void randomTransfer(Bank* bank, Account* accountA, Account* accountB) {
   while(true) {
     double randomMoney = ((double)rand() / RAND_MAX) * 100;
     if (bank->transferMoney(accountA, accountB, randomMoney)) {
-      {
-        lock_guard guard(sCoutLock);
-        cout << "Transfer " << randomMoney << " from " << accountA->getName()
-            << " to " << accountB->getName()
-            << ", Bank totalMoney: " << bank->totalMoney() << endl;
-      }
+      sCoutLock.lock();
+      cout << "Transfer " << randomMoney << " from " << accountA->getName()
+          << " to " << accountB->getName()
+          << ", Bank totalMoney: " << bank->totalMoney() << endl;
+      sCoutLock.unlock();
     } else {
-      {
-        lock_guard guard(sCoutLock);
-        cout << "Transfer failed, "
-             << accountA->getName() << " has only $" << accountA->getMoney() << ", but "
-             << randomMoney << " required" << endl;
-      }
+      sCoutLock.lock();
+      cout << "Transfer failed, "
+           << accountA->getName() << " has only " << accountA->getMoney() << ", but "
+           << randomMoney << " required" << endl;
+      sCoutLock.unlock();
     }
   }
 }

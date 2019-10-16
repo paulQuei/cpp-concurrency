@@ -37,6 +37,8 @@ endif()
 
 # For Linux
 IF("${CMAKE_SYSTEM}" MATCHES "Linux")
+  add_executable(parallel_algorithm                 15_parallel_algorithm.cpp)
+  target_link_libraries(parallel_algorithm          tbb)
   target_link_libraries(hello_thread                pthread)
   target_link_libraries(lambda_thread               pthread)
   target_link_libraries(thread_argument             pthread)
@@ -51,7 +53,5 @@ IF("${CMAKE_SYSTEM}" MATCHES "Linux")
   target_link_libraries(async_task                  pthread)
   target_link_libraries(packaged_task               pthread)
   target_link_libraries(promise_future              pthread)
-  # add_executable(parallel_algorithm 15_parallel_algorithm.cpp)
-  # target_link_libraries(parallel_algorithm tbb)
 endif()
 

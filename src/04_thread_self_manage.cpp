@@ -8,11 +8,11 @@
 using namespace std;
 
 void print_time() {
-  auto now = std::chrono::system_clock::now();
-  auto in_time_t = std::chrono::system_clock::to_time_t(now);
+  auto now = chrono::system_clock::now();
+  auto in_time_t = chrono::system_clock::to_time_t(now);
 
   std::stringstream ss;
-  ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
+  ss << put_time(localtime(&in_time_t), "%Y-%m-%d %X");
   cout << "now is: " << ss.str() << endl;
 }
 
