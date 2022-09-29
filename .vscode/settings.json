@@ -1,0 +1,8 @@
+{
+    "cmake.generator": "MinGW Makefiles",
+    "files.associations": {
+        "mutex": "cpp",
+        "cmath": "cpp",
+        "iostream": "cpp"
+    }
+}
